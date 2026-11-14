@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>HEATTECH × Damien Roussel · script et tournage à valider</title>
+<style>
+/*KIT*/
+main{max-width:640px;margin:0 auto;position:relative;z-index:1;padding:0 16px 70px}
+.hero{padding:60px 4px 26px;position:relative}
+.hero .orbe{--d:70px;position:absolute;right:6px;top:44px;animation:souffle 6s ease-in-out infinite}
+@keyframes souffle{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.hero h1{font-size:33px;line-height:1.08;letter-spacing:-.03em;max-width:15ch}
+.hero p{margin:16px 0 0;font-size:16px;line-height:1.5;max-width:40ch;color:var(--texte-2)}
+.hero p b,.carte p b,.franc b,.spec p b,.ligne p b,.repl b{color:var(--texte)}
+section{margin:34px 0}
+section>.etiquette{display:block;margin:0 4px 10px}
+.carte{padding:20px;margin-bottom:12px}
+.carte h2{font-size:23px;letter-spacing:-.02em;line-height:1.15}
+.carte>p{margin:10px 0 0;line-height:1.55;color:var(--texte-2)}
+.franc{border-left:2px solid var(--pan-2);padding:14px 16px;margin:14px 0 0;color:var(--texte-2);font-size:16px;line-height:1.5;border-radius:0 var(--r-m) var(--r-m) 0;background:rgba(40,95,255,.06)}
+.spec{padding:14px 0;border-top:1px solid var(--filet)}
+.spec:first-of-type{border-top:0;padding-top:4px}
+.num{font:600 13px var(--police-mono);color:var(--pan-3);letter-spacing:.06em}
+.spec h3{font-size:19px;margin-top:4px;letter-spacing:-.01em;line-height:1.2}
+.spec p{margin:6px 0 0;font-size:16px;line-height:1.5;color:var(--texte-2)}
+.tag{display:inline-block;font:600 12px var(--police-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-pilule);margin-left:6px;vertical-align:middle}
+.tag.v{background:rgba(40,95,255,.14);color:var(--pan-3)}
+.tag.m{background:rgba(255,255,255,.7);border:1px solid var(--filet);color:var(--texte-3)}
+.tag.q{background:linear-gradient(135deg,var(--bleu-chat),var(--bleu-renard));color:#fff}
+/* le script */
+.repl{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--filet);font-size:17px;line-height:1.5;color:var(--texte)}
+.repl:first-of-type{border-top:0;padding-top:4px}
+.repl .qui{font:600 12px var(--police-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pan-3);padding-top:5px;line-height:1.4}
+.repl .qui small{display:block;font:500 11px var(--police-mono);color:var(--texte-3);letter-spacing:.04em;text-transform:none;margin-top:3px}
+.repl p{margin:0}
+.repl .didascalie{display:block;margin-top:6px;font-size:14px;color:var(--texte-3);font-style:italic}
+.cles{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.cle{background:rgba(255,255,255,.7);border:1px solid var(--filet);color:var(--texte-2);font:500 15px var(--police);padding:8px 14px;border-radius:var(--r-pilule)}
+.cle b{color:var(--pan-3);font-family:var(--large)}
+.grille2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.case{background:rgba(255,255,255,.6);border:1px solid var(--filet);border-radius:var(--r-m);padding:12px 14px}
+.case .num{display:block}
+.case p{margin:4px 0 0;font-size:16px;line-height:1.4;color:var(--texte)}
+@media (max-width:420px){.grille2{grid-template-columns:1fr}.repl{grid-template-columns:76px 1fr}}
+.ligne{display:grid;grid-template-columns:1fr;gap:4px;padding:13px 0;border-top:1px solid var(--filet)}
+.ligne:first-of-type{border-top:0;padding-top:4px}
+.ligne .dit{font-size:16px;color:var(--texte);font-weight:600;line-height:1.4}
+.ligne p{margin:0;font-size:15px;line-height:1.5;color:var(--texte-2)}
+.intro{padding:14px 16px;border:1px solid var(--filet);border-radius:var(--r-m);background:rgba(255,255,255,.6);margin-top:10px}
+.intro .num{display:block;margin-bottom:4px}
+.intro p{margin:0;font-size:16px;line-height:1.5;color:var(--texte)}
+.pied{margin:40px 4px 0;font-size:14px;line-height:1.6;color:var(--texte-3)}
+.pied b{color:var(--texte-2)}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <span class="orbe"></span>
+    <span class="etiquette">Uniqlo × Damien Roussel · HEATTECH · reel du 18 novembre 2026</span>
+    <h1>Le script HEATTECH, à valider avant tournage</h1>
+    <p>Un reel vertical de <b>40 secondes environ</b>, une seule idée&nbsp;: <b>pourquoi HEATTECH est aussi peu cher pour ce que ça tient</b>. Ce document donne le texte mot à mot, l'origine de chaque chiffre avancé et le plan de tournage. Tout peut encore bouger&nbsp;: une formulation à changer, un chiffre à préciser, dites-le avant le tournage.</p>
+  </header>
+
+  <section>
+    <span class="etiquette">Résumé · 1 · en un coup d'œil</span>
+    <div class="verre carte">
+      <h2>Ce que vous validez</h2>
+      <p>Le texte intégral du reel (section 2), les faits qu'il avance (section 3) et la façon de le tourner (section 4). La section 5 propose des intros alternatives pour les essais, et la section 6 liste les trois points qui attendent votre réponse.</p>
+      <div class="grille2">
+        <div class="case"><span class="num">FORMAT</span><p>Reel vertical 9:16, sous-titré sur toute la durée</p></div>
+        <div class="case"><span class="num">DURÉE</span><p>220 mots, soit 40 s environ au rythme de Damien</p></div>
+        <div class="case"><span class="num">PUBLICATION</span><p>Mercredi 18 novembre 2026, après votre validation de l'aperçu monté</p></div>
+        <div class="case"><span class="num">TON</span><p>Un sketch à deux personnages en ouverture, puis Damien explique face caméra</p></div>
+      </div>
+      <div class="franc"><b>La ligne de Damien&nbsp;:</b> il parle à son public comme à un ami, en disant ce qu'il pense vraiment. Son fil rouge depuis ses débuts, c'est l'écart entre ce qu'une pièce vaut et ce qu'elle coûte. HEATTECH est un cas d'école de ce fil rouge, c'est pour ça que la vidéo parle de prix.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="etiquette">Script · 2 · le texte mot à mot</span>
+    <div class="verre carte">
+      <h2>Ouverture&nbsp;: le sketch</h2>
+      <p>Deux personnages, joués par Damien, en plan fixe. Le premier est en veste et n'a rien compris, le second est en tee-shirt HEATTECH et a tout compris.</p>
+      <div class="repl"><span class="qui">Perso 1<small>en veste</small></span><p>«&nbsp;Eh, il fait 5 degrés, t'es en tee-shirt, comment tu fais pour pas mourir de froid, là&nbsp;? Va mettre une veste, t'as cru que t'étais la Reine des neiges&nbsp;?&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Perso 2<small>en HEATTECH</small></span><p>«&nbsp;Mon gars… HEATTECH, hein.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Perso 1</span><p>«&nbsp;Comment ça, HEATTECH&nbsp;?&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Perso 2</span><p>«&nbsp;HEATTECH, mec.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Perso 1<small>à la caméra</small></span><p>«&nbsp;Il commence à me rendre fou avec son HEATTECH, Aokiji. C'est quoi, ça&nbsp;?&nbsp;»<span class="didascalie">Coupe franche&nbsp;: Damien seul, face caméra, sur le fond de la vidéo.</span></p></div>
+    </div>
+
+    <div class="verre carte">
+      <h2>Corps&nbsp;: l'explication</h2>
+      <p>Damien, face caméra. Le texte est le sien, tel qu'il le dira, ponctuation remise au propre.</p>
+      <div class="repl"><span class="qui">Damien<small>la techno</small></span><p>«&nbsp;Bon, je vais lui expliquer. HEATTECH, c'est une technologie qu'Uniqlo a développée avec l'entreprise japonaise Toray, depuis plus de 20 ans. Ils ont bossé avec eux pour créer leur propre matière.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Damien<small>le pari</small></span><p>«&nbsp;Le but, c'est simple&nbsp;: faire les vêtements les plus chauds possible, aux prix les plus bas possible. Quand tu regardes les prix, ils ont réussi leur pari.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Damien<small>la preuve</small></span><p>«&nbsp;Ils ont même une chambre spéciale à Tokyo pour tester les produits dans des conditions extrêmes.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Damien<small>la question</small></span><p>«&nbsp;La vraie question maintenant, c'est&nbsp;: pourquoi c'est si peu cher&nbsp;?&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Damien<small>les raisons</small></span><p>«&nbsp;Il y a plusieurs facteurs. L'ancienneté&nbsp;: ça fait plus de 20 ans que Toray et Uniqlo bossent ensemble. La quantité de pièces vendues&nbsp;: HEATTECH, c'est plus d'1,5 milliard de ventes. Et en plus, tu rajoutes le fait qu'Uniqlo a trouvé sa gamme&nbsp;: ils ont leurs basiques sur ce qui compte le plus, et ils envoient du volume.&nbsp;»</p></div>
+      <div class="repl"><span class="qui">Damien<small>la chute</small></span><p>«&nbsp;Donc la prochaine fois que tu veux des produits pour pas trop cher, tu sais où aller.&nbsp;»</p></div>
+      <div class="cles">
+        <span class="cle"><b>220</b> mots</span>
+        <span class="cle"><b>≈ 40 s</b> à 5,5 mots par seconde</span>
+        <span class="cle"><b>1</b> idée&nbsp;: le prix</span>
+        <span class="cle"><b>0</b> superlatif</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="etiquette">Faits · 3 · ce que la vidéo affirme, et d'où ça vient</span>
+    <div class="verre carte">
+      <h2>Chaque phrase chiffrée a une source</h2>
+      <p>Étiquettes&nbsp;: <span class="tag v">V</span> vérifié dans une source publique, <span class="tag m">M</span> dit par Uniqlo ou Toray, <span class="tag q">À confirmer</span> nous avons besoin de votre chiffre.</p>
+      <div class="ligne"><span class="dit">«&nbsp;Développée avec l'entreprise japonaise Toray, depuis plus de 20 ans&nbsp;» <span class="tag v">V</span></span><p>Rencontre Uniqlo–Toray le 24 avril 2000, premières ventes HEATTECH en 2003, partenariat stratégique signé en 2006. Plus de 20 ans dans les deux lectures.</p></div>
+      <div class="ligne"><span class="dit">«&nbsp;Créer leur propre matière&nbsp;» <span class="tag m">M</span></span><p>Toray raconte avoir refusé de créer une fibre pour un seul client, jusqu'à ce qu'Uniqlo s'engage sur une ligne de production dédiée. C'est le récit de Toray, repris tel quel.</p></div>
+      <div class="ligne"><span class="dit">«&nbsp;Les vêtements les plus chauds possible, aux prix les plus bas possible&nbsp;» <span class="tag m">M</span></span><p>Résume la demande d'origine d'Uniqlo à Toray («&nbsp;chaud, fin, et sous un jean&nbsp;») et le positionnement de la gamme. Formulation de Damien.</p></div>
+      <div class="ligne"><span class="dit">«&nbsp;Une chambre spéciale à Tokyo pour tester les produits&nbsp;» <span class="tag m">M</span></span><p>Interview Toray (2023)&nbsp;: Uniqlo teste HEATTECH dans une chambre de simulation météo (climat, humidité) à son siège de Tokyo. Si «&nbsp;conditions extrêmes&nbsp;» vous semble trop fort, Damien peut dire «&nbsp;dans le froid et l'humidité&nbsp;».</p></div>
+      <div class="ligne"><span class="dit">«&nbsp;Plus d'1,5 milliard de ventes&nbsp;» <span class="tag q">À confirmer</span></span><p>Chiffre officiel trouvé&nbsp;: environ 1 milliard de pièces cumulées en 2017, annoncé par Uniqlo. Le 1,5 milliard vient de la presse en 2023. Donnez-nous le chiffre que vous souhaitez voir cité&nbsp;; sinon Damien dira «&nbsp;plus d'un milliard de pièces vendues&nbsp;».</p></div>
+      <div class="ligne"><span class="dit">«&nbsp;Ils ont leurs basiques et ils envoient du volume&nbsp;» <span class="tag v">V</span></span><p>Environ 1,5 million de pièces en 2003, 28 millions en 2008, 130 millions visés en 2012. La gamme change peu d'une année à l'autre.</p></div>
+      <div class="franc"><b>Ce qui n'est pas dans la vidéo, volontairement&nbsp;:</b> aucune promesse de température, aucun comparatif avec une autre marque, aucun mot comme «&nbsp;ultra&nbsp;» ou «&nbsp;de fou&nbsp;». Sur le compte de Damien, les vidéos sans superlatif convertissent deux fois mieux en abonnés.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="etiquette">Tournage · 4 · comment on le filme</span>
+    <div class="verre carte">
+      <h2>Fond vert, plan fixe, deux tenues</h2>
+      <div class="spec"><span class="num">LIEU ET IMAGE</span><h3>Studio sur fond vert</h3><p>Damien filmé en plan fixe, le fond habillé au montage. Le sketch d'ouverture se tourne en deux prises (une par personnage), montées côte à côte ou en champ-contrechamp.</p></div>
+      <div class="spec"><span class="num">PIÈCE PORTÉE</span><h3>Un HEATTECH manches longues homme</h3><p>Le personnage 2 porte le tee-shirt HEATTECH sous rien d'autre, c'est le gag visuel du sketch. La référence exacte à montrer (classique, Extra Chaud ou Ultra Chaud) est à votre choix, voir section 6.</p></div>
+      <div class="spec"><span class="num">HABILLAGE</span><h3>Sous-titres, nom de la gamme, prix</h3><p>Sous-titres sur toute la vidéo. Le nom HEATTECH apparaît à l'écran écrit comme vous l'écrivez. Si un prix est affiché, c'est le prix public France du jour.</p></div>
+      <div class="spec"><span class="num">MENTIONS</span><h3>Collaboration commerciale indiquée</h3><p>Mention «&nbsp;collaboration commerciale&nbsp;» ou «&nbsp;partenariat rémunéré&nbsp;» à l'écran et dans la légende, selon la loi française de 2023 sur les influenceurs. La légende vous est envoyée pour validation avant publication.</p></div>
+      <div class="spec"><span class="num">CALENDRIER</span><h3>Tournage cette semaine, aperçu avant le 18</h3><p>Tournage avant le 18 novembre, puis la vidéo montée vous est envoyée en aperçu. Publication le mercredi 18 novembre 2026 une fois votre accord reçu. Si le délai de validation est plus long, la date de publication se décale d'autant.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="etiquette">Intros · 5 · trois ouvertures alternatives, pour les essais</span>
+    <div class="verre carte">
+      <h2>Même corps, plusieurs façons de commencer</h2>
+      <p>Damien teste souvent plusieurs intros en vidéos d'essai avant la version publique&nbsp;: les 5 premières secondes décident de tout. Ces trois ouvertures face caméra, écrites le 26 octobre, peuvent servir de variantes au sketch. Si vous préférez que seule la version sketch existe, on s'y tient.</p>
+      <div class="intro"><span class="num">INTRO A · LA PROMESSE</span><p>«&nbsp;S'il y a bien un moyen de rester au chaud en hiver, c'est de porter du HEATTECH. Aujourd'hui, je t'explique comment Uniqlo a créé une technologie capable de te protéger du froid, vendue à un prix imbattable pour les concurrents.&nbsp;»</p></div>
+      <div class="intro"><span class="num">INTRO B · LA QUESTION</span><p>«&nbsp;Uniqlo a une gamme conçue exprès pour les grands froids, et toi, tu la connais même pas&nbsp;? Aujourd'hui, je te présente leur gamme HEATTECH, et tu vas vouloir en acheter après avoir vu cette vidéo.&nbsp;»</p></div>
+      <div class="intro"><span class="num">INTRO C · LE CHIFFRE</span><p>«&nbsp;Uniqlo a vendu plus d'un milliard de produits juste avec leur gamme qui protège du froid. Attends, je t'explique comment ils ont cassé le game.&nbsp;»</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="etiquette">Validation · 6 · ce qu'on attend de vous</span>
+    <div class="verre carte">
+      <h2>Trois réponses, et on tourne</h2>
+      <div class="spec"><span class="num">1</span><h3>Le script, tel quel ou modifié</h3><p>Une phrase à changer, un mot à retirer&nbsp;: indiquez-le, Damien l'intègre avant le tournage. Le texte reste dans sa voix, c'est ce qui fait que son public l'écoute.</p></div>
+      <div class="spec"><span class="num">2</span><h3>Le chiffre de ventes à citer</h3><p>«&nbsp;Plus d'1,5 milliard&nbsp;», «&nbsp;plus d'un milliard&nbsp;», ou votre chiffre officiel le plus récent.</p></div>
+      <div class="spec"><span class="num">3</span><h3>La pièce et son nom officiel</h3><p>Quel HEATTECH manches longues Damien porte à l'écran, et l'orthographe exacte du nom de gamme à afficher.</p></div>
+      <div class="franc"><b>Ensuite&nbsp;:</b> tournage, montage, aperçu de la vidéo et légende envoyés pour votre accord, puis publication le 18 novembre.</div>
+    </div>
+  </section>
+
+  <p class="pied"><b>Damien Roussel</b> · RD CREATION · document préparé le 15 novembre 2026 pour l'équipe influence d'Uniqlo. Lien privé, non indexé.</p>
+</main>
+</body>
+</html>
