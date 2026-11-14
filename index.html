@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>HEATTECH × Damien Roussel · script et tournage à valider</title>
+<title>HEATTECH × Damien Roussel · script à valider</title>
 <style>
 /* KIT ARTEFACT « AURA » — DA validée par Damien le 11/11/2026 (Tokn v3, commit 30cee5f).
    Fond blanc + 3 auras cœur noir → bleus qui dérivent, grain, verre blanc, PolySans. SEULE DA des artefacts.
@@ -46,256 +46,131 @@ section>.etiquette{display:inline-block!important;padding:5px 11px;border-radius
 .orbe::after{content:"";position:absolute;inset:0;border-radius:50%;background-image:var(--bruit);background-size:80px;mix-blend-mode:overlay;opacity:.5}
 @keyframes souffle{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
-/* Couche LISIBLE (14/11/2026) : injectée après artefact-aura.css par fabrique-artefact.py.
-   Retour de Damien : « très peu lisible, qu'ils prennent toute la page, ludique, compris facilement ». */
-:root{--lis-max:1280px;--lis-pad:clamp(20px,5vw,72px);--lis-base:18px}
-html{font-size:var(--lis-base)}
-body.aura{font-size:1rem;line-height:1.6}
-body.aura main{max-width:var(--lis-max)!important;padding:0 var(--lis-pad) 80px!important;margin:0 auto}
-/* progression de lecture + chapitres */
-.lis-progres{position:fixed;left:0;top:0;height:4px;width:0;z-index:50;background:linear-gradient(90deg,var(--bleu-chat),var(--bleu-renard));transition:width .15s linear}
-.lis-nav{position:sticky;top:12px;z-index:40;display:flex;gap:8px;flex-wrap:wrap;padding:10px 12px;margin:16px 0 8px;border-radius:999px;background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 30px -18px rgba(12,20,98,.35)}
-.lis-nav a{font:600 13px var(--police);color:var(--texte-2);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .3s var(--ressort);white-space:nowrap}
-.lis-nav a.on{color:#fff;background:linear-gradient(135deg,var(--bleu-chat),var(--bleu-renard));box-shadow:0 6px 16px -6px rgba(36,54,184,.6)}
-@media(max-width:700px){.lis-nav{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;border-radius:20px}.lis-nav::-webkit-scrollbar{display:none}}
-/* titres et textes */
-body.aura .hero{padding:clamp(40px,6vw,80px) 0 30px!important;display:grid;grid-template-columns:1fr;gap:16px 48px;align-items:end}
-@media(min-width:900px){body.aura .hero{grid-template-columns:3fr 2fr}}
-body.aura .hero h1{font-size:clamp(38px,5.2vw,72px)!important;max-width:16ch!important;line-height:1.02!important}
-body.aura .hero p{font-size:clamp(18px,1.6vw,24px)!important;max-width:40ch!important;line-height:1.45!important}
-body.aura .hero .orbe{position:static!important;--d:56px;grid-row:1;justify-self:start}
-@media(min-width:900px){body.aura .hero .orbe{grid-column:2;grid-row:1/3;justify-self:end;align-self:start;--d:84px}}
-body.aura section{margin:clamp(36px,5vw,64px) 0!important;scroll-margin-top:90px}
-body.aura section>.etiquette{font-size:13px!important;margin:0 0 14px!important}
-body.aura .carte{padding:clamp(20px,3vw,36px)!important}
-body.aura .carte h2{font-size:clamp(24px,2.6vw,36px)!important;line-height:1.1!important}
-body.aura .carte>p,body.aura .spec p,body.aura .spec ul,body.aura .chiffre p,body.aura .bilan,body.aura .franc{font-size:1rem!important;line-height:1.55!important}
-body.aura .spec h3{font-size:clamp(19px,1.5vw,22px)!important}
-body.aura .num{font-size:13px!important}
-body.aura table{font-size:1.05rem!important}
-body.aura th{font-size:12px!important}
-body.aura td,body.aura th{padding:13px 8px!important}
-body.aura .formule{font-size:clamp(22px,2.4vw,34px)!important}
-body.aura .dictee,body.aura .modele{font-size:1.05rem!important;line-height:1.6!important;padding:18px 20px!important}
-body.aura .franc{padding:18px 22px!important;margin-top:18px!important}
-body.aura .pied{font-size:14px!important}
-/* grilles : une carte par idée, pleine largeur */
-.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:6px}
-.grille>*{border-top:0!important;padding:20px 22px!important;margin:0!important;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);border-radius:var(--r-l);box-shadow:0 8px 24px -18px rgba(12,20,98,.25);transition:transform .35s var(--ressort),box-shadow .35s}
-.grille>*:hover{transform:translateY(-2px);box-shadow:0 18px 34px -18px rgba(12,20,98,.35)}
-.grille>.chiffre{display:block}
-.grille>.chiffre .gros{display:block;white-space:nowrap;font-size:clamp(34px,3.6vw,56px)!important;min-width:0!important;margin-bottom:10px;line-height:.95}
-.grille>.chiffre .barre{margin-top:14px}
-.grille>.modele{margin:0!important}
-.grille>*:first-of-type{padding-top:20px!important}
-.grille+.franc{grid-column:1/-1}
-/* boutons de jeu plus gros, tapables */
-body.aura .puce{font-size:1rem!important;padding:12px 18px!important;border-radius:16px!important;line-height:1.35}
-body.aura .suite{font-size:15px!important;padding:11px 18px!important}
-body.aura .objectif{font-size:1.05rem!important;gap:10px 18px!important}
-body.aura .objectif .v{font-size:1.1rem!important}
-/* chaque fait = une carte, chaque jeu = large */
-@media(min-width:900px){body.aura section.large .carte{padding:40px 48px!important}}
-@media(prefers-reduced-motion:reduce){.grille>*{transition:none}}
-/* aucun texte de carte sous 1rem, quelle que soit la classe propre à la page */
-body.aura .carte p,body.aura .carte li,body.aura .verre p,body.aura .verre li{font-size:max(1rem,1em)!important}
-body.aura .carte h3,body.aura .verre h3{font-size:max(1.15rem,1em)!important}
-/* CRITÈRES DE LISIBILITÉ (14/11, capture du tableau) :
-   1. une ligne de texte ne dépasse pas 72 caractères ; 2. un chiffre n'est jamais à plus de 600 px de son libellé ;
-   3. les chiffres sont plus gros que le texte ; 4. le verre est assez opaque pour que le bleu du fond ne gêne pas. */
-body.aura .carte>p,body.aura .carte>h2,body.aura .franc,body.aura .hero p,body.aura .spec p,body.aura .spec ul,body.aura .chiffre p,body.aura .dictee,body.aura .modele,body.aura .bilan,body.aura .formule{max-width:72ch}
-body.aura .verre{background:linear-gradient(180deg,rgba(255,255,255,.93),rgba(255,255,255,.84))!important}
-body.aura .grille>*{background:rgba(255,255,255,.78)!important}
-body.aura table{max-width:760px!important;width:100%}
-body.aura td:not(:first-child){font-size:1.3rem!important;font-weight:600;letter-spacing:-.01em;width:120px}
-body.aura td:first-child{color:var(--texte-2)}
-body.aura tr:nth-child(even) td{background:rgba(40,95,255,.045)}
-body.aura td{padding:14px 12px!important}
-body.aura th{padding:8px 12px 10px!important}
-body.aura td:first-child,body.aura th:first-child{padding-left:14px!important;border-radius:10px 0 0 10px}
-body.aura td:last-child,body.aura th:last-child{padding-right:14px!important;border-radius:0 10px 10px 0}
-body.aura .objectif{max-width:760px}
-/* listes de cartes avec photo (guides) : 2 colonnes sur Mac */
-.grille-2{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:900px){.grille-2{grid-template-columns:1fr 1fr}}
-.grille-2>*{margin:0!important}
-/* hero : titre et texte se suivent, photo d'en-tête en pleine largeur */
-body.aura .hero{align-items:start!important}
-body.aura .hero .photo,body.aura .hero figure{grid-column:1/-1;max-width:980px}
-body.aura .carte p,body.aura .carte li,body.aura .verre p,body.aura .verre li{max-width:72ch}
-
-main{max-width:640px;margin:0 auto;position:relative;z-index:1;padding:0 16px 70px}
-.hero{padding:60px 4px 26px;position:relative}
-.hero .orbe{--d:70px;position:absolute;right:6px;top:44px;animation:souffle 6s ease-in-out infinite}
-@keyframes souffle{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-.hero h1{font-size:33px;line-height:1.08;letter-spacing:-.03em;max-width:15ch}
-.hero p{margin:16px 0 0;font-size:16px;line-height:1.5;max-width:40ch;color:var(--texte-2)}
-.hero p b,.carte p b,.franc b,.spec p b,.ligne p b,.repl b{color:var(--texte)}
-section{margin:34px 0}
-section>.etiquette{display:block;margin:0 4px 10px}
-.carte{padding:20px;margin-bottom:12px}
-.carte h2{font-size:23px;letter-spacing:-.02em;line-height:1.15}
-.carte>p{margin:10px 0 0;line-height:1.55;color:var(--texte-2)}
-.franc{border-left:2px solid var(--pan-2);padding:14px 16px;margin:14px 0 0;color:var(--texte-2);font-size:16px;line-height:1.5;border-radius:0 var(--r-m) var(--r-m) 0;background:rgba(40,95,255,.06)}
-.spec{padding:14px 0;border-top:1px solid var(--filet)}
-.spec:first-of-type{border-top:0;padding-top:4px}
-.num{font:600 13px var(--police-mono);color:var(--pan-3);letter-spacing:.06em}
-.spec h3{font-size:19px;margin-top:4px;letter-spacing:-.01em;line-height:1.2}
-.spec p{margin:6px 0 0;font-size:16px;line-height:1.5;color:var(--texte-2)}
-.tag{display:inline-block;font:600 12px var(--police-mono);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-pilule);margin-left:6px;vertical-align:middle}
+*{box-sizing:border-box}
+html,body{margin:0;background:#e9ecf5}
+body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;margin:0 auto;position:relative;overflow:hidden;background:#fff;color:var(--texte);font-family:var(--police);font-size:8.5pt;line-height:1.32}
+.aura{position:absolute;inset:0;pointer-events:none}
+.aura i{position:absolute;border-radius:50%}
+.aura i:nth-child(1){width:150mm;height:150mm;right:-50mm;top:-45mm;background:radial-gradient(circle at 50% 50%,rgba(36,54,184,.55) 0%,rgba(47,107,224,.32) 28%,rgba(79,168,247,.14) 52%,rgba(79,168,247,0) 70%)}
+.aura i:nth-child(2){width:170mm;height:170mm;left:-70mm;bottom:-80mm;background:radial-gradient(circle at 50% 50%,rgba(40,95,255,.42) 0%,rgba(47,107,224,.22) 30%,rgba(79,168,247,.1) 52%,rgba(79,168,247,0) 70%)}
+.aura i:nth-child(3){width:90mm;height:90mm;right:-25mm;bottom:-30mm;background:radial-gradient(circle,rgba(79,168,247,.28) 0%,rgba(79,168,247,0) 68%)}
+.in{position:relative;padding:11mm 11mm 8mm;height:100%;display:flex;flex-direction:column}
+.tete{display:flex;align-items:flex-start;justify-content:space-between;gap:8mm;margin-bottom:3.5mm}
+.etiquette{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.88);border:1px solid var(--filet);font:600 8pt var(--police-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--texte-2)}
+h1{font-family:var(--large);font-weight:600;font-size:19pt;line-height:1.05;letter-spacing:-.03em;margin:2.5mm 0 1.5mm;max-width:120mm}
+.tete p{margin:0;font-size:8.8pt;line-height:1.35;color:var(--texte-2);max-width:122mm}
+.tete p b{color:var(--texte)}
+.pilules{display:flex;flex-direction:column;gap:5px;flex:none;width:48mm;padding-top:1mm}
+.pil{background:rgba(255,255,255,.82);border:1px solid var(--filet);border-radius:12px;padding:4px 8px;font-size:8pt;color:var(--texte-2);line-height:1.25}
+.pil b{display:block;font:600 7pt var(--police-mono);letter-spacing:.08em;color:var(--pan-3);text-transform:uppercase;margin-bottom:1px}
+.cols{display:grid;grid-template-columns:1.04fr 1fr;gap:3.5mm;flex:1;min-height:0}
+.col{display:flex;flex-direction:column;gap:3mm}
+.verre{border-radius:16px;padding:3.6mm 4.2mm}
+h2{font-family:var(--police);font-weight:600;font-size:10.5pt;letter-spacing:-.02em;margin:0 0 1mm;line-height:1.15}
+.sous{font-size:7.8pt;color:var(--texte-3);margin:0 0 1.6mm;line-height:1.3}
+.k{font:600 7pt var(--police-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pan-3)}
+.repl{display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:1.6mm 0;border-top:1px solid var(--filet)}
+.repl:first-of-type{border-top:0;padding-top:0}
+.repl .k small{display:block;font:500 6.8pt var(--police-mono);color:var(--texte-3);text-transform:none;letter-spacing:.02em;margin-top:1px}
+.repl p{margin:0;font-size:8.9pt;line-height:1.34}
+.repl p i{display:block;font-size:7.4pt;color:var(--texte-3);margin-top:1mm}
+.bloc{margin-top:2mm;padding-top:1.5mm;border-top:1px solid var(--filet)}
+.fait{padding:1.2mm 0;border-top:1px solid var(--filet);font-size:7.9pt;line-height:1.3;color:var(--texte-2)}
+.fait:first-of-type{border-top:0;padding-top:0}
+.fait b{display:block;color:var(--texte);font-weight:600;font-size:8.2pt}
+.tag{display:inline-block;font:600 6.8pt var(--police-mono);letter-spacing:.07em;text-transform:uppercase;padding:1px 6px;border-radius:999px;margin-left:4px;vertical-align:1px}
 .tag.v{background:rgba(40,95,255,.14);color:var(--pan-3)}
 .tag.m{background:rgba(255,255,255,.7);border:1px solid var(--filet);color:var(--texte-3)}
 .tag.q{background:linear-gradient(135deg,var(--bleu-chat),var(--bleu-renard));color:#fff}
-/* le script */
-.repl{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--filet);font-size:17px;line-height:1.5;color:var(--texte)}
-.repl:first-of-type{border-top:0;padding-top:4px}
-.repl .qui{font:600 12px var(--police-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pan-3);padding-top:5px;line-height:1.4}
-.repl .qui small{display:block;font:500 11px var(--police-mono);color:var(--texte-3);letter-spacing:.04em;text-transform:none;margin-top:3px}
-.repl p{margin:0}
-.repl .didascalie{display:block;margin-top:6px;font-size:14px;color:var(--texte-3);font-style:italic}
-.cles{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-.cle{background:rgba(255,255,255,.7);border:1px solid var(--filet);color:var(--texte-2);font:500 15px var(--police);padding:8px 14px;border-radius:var(--r-pilule)}
-.cle b{color:var(--pan-3);font-family:var(--large)}
-.grille2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.case{background:rgba(255,255,255,.6);border:1px solid var(--filet);border-radius:var(--r-m);padding:12px 14px}
-.case .num{display:block}
-.case p{margin:4px 0 0;font-size:16px;line-height:1.4;color:var(--texte)}
-@media (max-width:420px){.grille2{grid-template-columns:1fr}.repl{grid-template-columns:76px 1fr}}
-.ligne{display:grid;grid-template-columns:1fr;gap:4px;padding:13px 0;border-top:1px solid var(--filet)}
-.ligne:first-of-type{border-top:0;padding-top:4px}
-.ligne .dit{font-size:16px;color:var(--texte);font-weight:600;line-height:1.4}
-.ligne p{margin:0;font-size:15px;line-height:1.5;color:var(--texte-2)}
-.intro{padding:14px 16px;border:1px solid var(--filet);border-radius:var(--r-m);background:rgba(255,255,255,.6);margin-top:10px}
-.intro .num{display:block;margin-bottom:4px}
-.intro p{margin:0;font-size:16px;line-height:1.5;color:var(--texte)}
-.pied{margin:40px 4px 0;font-size:14px;line-height:1.6;color:var(--texte-3)}
+.liste{margin:0;padding:0;list-style:none}
+.liste li{display:grid;grid-template-columns:17mm 1fr;gap:2mm;padding:1.1mm 0;border-top:1px solid var(--filet);font-size:7.9pt;line-height:1.3;color:var(--texte-2)}
+.liste li:first-child{border-top:0;padding-top:0}
+.liste li b{color:var(--texte)}
+.valid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5mm}
+.valid div{background:rgba(255,255,255,.72);border:1px solid var(--filet);border-radius:10px;padding:2mm 2.5mm;font-size:7.8pt;color:var(--texte-2);line-height:1.3}
+.valid div b{display:block;font-family:var(--large);font-size:12pt;color:var(--pan-3);line-height:1;margin-bottom:1mm}
+.franc{margin-top:2.5mm;border-left:2px solid var(--pan-2);padding:2mm 3mm;background:rgba(40,95,255,.06);border-radius:0 10px 10px 0;font-size:8.6pt;color:var(--texte-2)}
+.franc b{color:var(--texte)}
+.pied{margin-top:2.5mm;display:flex;justify-content:space-between;gap:6mm;font-size:7.6pt;color:var(--texte-3);line-height:1.4}
 .pied b{color:var(--texte-2)}
-@media print{.auras,.lis-nav,.lis-progres,.hero .orbe{display:none!important}body{background:#fff!important}main{max-width:none;padding:0 8mm 10mm}section{margin:18px 0}.spec,.repl,.ligne,.case,.intro,.franc,.grille2,.cles{break-inside:avoid}h2{break-after:avoid}.hero{padding:10mm 4px 6mm}.verre{box-shadow:none!important;border:1px solid var(--filet)!important;background:#fff!important}@page{size:A4;margin:12mm}}
+@page{size:A4;margin:0}
+@media print{html,body{background:#fff}.page{margin:0}}
 </style>
 </head>
-<body class="aura">
-<div class="auras" aria-hidden="true"><i></i><i></i><i></i></div>
-<div class="lis-progres" aria-hidden="true"></div>
-<main>
-  <header class="hero">
-    <span class="orbe"></span>
-    <span class="etiquette">Uniqlo × Damien Roussel · HEATTECH · reel du 18 novembre 2026</span>
-    <h1>Le script HEATTECH, à valider avant tournage</h1>
-    <p>Un reel vertical de <b>40 secondes environ</b>, une seule idée&nbsp;: <b>pourquoi HEATTECH est aussi peu cher pour ce que ça tient</b>. Ce document donne le texte mot à mot, l'origine de chaque chiffre avancé et le plan de tournage. Tout peut encore bouger&nbsp;: une formulation à changer, un chiffre à préciser, dites-le avant le tournage.</p>
-  </header>
+<body>
+<div class="page">
+<div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="in">
 
-  <section>
-    <span class="etiquette">Résumé · 1 · en un coup d'œil</span>
-    <div class="verre carte">
-      <h2>Ce que vous validez</h2>
-      <p>Le texte intégral du reel (section 2), les faits qu'il avance (section 3) et la façon de le tourner (section 4). La section 5 propose des intros alternatives pour les essais, et la section 6 liste les trois points qui attendent votre réponse.</p>
-      <div class="grille2">
-        <div class="case"><span class="num">FORMAT</span><p>Reel vertical 9:16, sous-titré sur toute la durée</p></div>
-        <div class="case"><span class="num">DURÉE</span><p>220 mots, soit 40 s environ au rythme de Damien</p></div>
-        <div class="case"><span class="num">PUBLICATION</span><p>Mercredi 18 novembre 2026, après votre validation de l'aperçu monté</p></div>
-        <div class="case"><span class="num">TON</span><p>Un sketch à deux personnages en ouverture, puis Damien explique face caméra</p></div>
-      </div>
-      <div class="franc"><b>La ligne de Damien&nbsp;:</b> il parle à son public comme à un ami, en disant ce qu'il pense vraiment. Son fil rouge depuis ses débuts, c'est l'écart entre ce qu'une pièce vaut et ce qu'elle coûte. HEATTECH est un cas d'école de ce fil rouge, c'est pour ça que la vidéo parle de prix.</div>
+  <div class="tete">
+    <div>
+      <span class="etiquette">Uniqlo × Damien Roussel · HEATTECH · reel du 18 novembre 2026</span>
+      <h1>Le script HEATTECH, à valider avant tournage</h1>
+      <p>Un reel vertical d'environ <b>40 secondes</b>, une seule idée&nbsp;: <b>pourquoi HEATTECH est aussi peu cher pour ce que ça tient</b>. Le texte mot à mot, l'origine de chaque chiffre, le plan de tournage et les trois points qui attendent votre réponse. Tout peut encore bouger avant le tournage.</p>
     </div>
-  </section>
-
-  <section>
-    <span class="etiquette">Script · 2 · le texte mot à mot</span>
-    <div class="verre carte">
-      <h2>Ouverture&nbsp;: le sketch</h2>
-      <p>Deux personnages, joués par Damien, en plan fixe. Le premier est en veste et n'a rien compris, le second est en tee-shirt HEATTECH et a tout compris.</p>
-      <div class="repl"><span class="qui">Perso 1<small>en veste</small></span><p>«&nbsp;Eh, il fait 5 degrés, t'es en tee-shirt, comment tu fais pour pas mourir de froid, là&nbsp;? Va mettre une veste, t'as cru que t'étais la Reine des neiges&nbsp;?&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Perso 2<small>en HEATTECH</small></span><p>«&nbsp;Mon gars… HEATTECH, hein.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Perso 1</span><p>«&nbsp;Comment ça, HEATTECH&nbsp;?&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Perso 2</span><p>«&nbsp;HEATTECH, mec.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Perso 1<small>à la caméra</small></span><p>«&nbsp;Il commence à me rendre fou avec son HEATTECH, Aokiji. C'est quoi, ça&nbsp;?&nbsp;»<span class="didascalie">Coupe franche&nbsp;: Damien seul, face caméra, sur le fond de la vidéo.</span></p></div>
+    <div class="pilules">
+      <div class="pil"><b>Format</b>Reel 9:16, sous-titré, fond vert</div>
+      <div class="pil"><b>Durée</b>220 mots, environ 40 s</div>
+      <div class="pil"><b>Publication</b>Mercredi 18 novembre, après votre accord sur l'aperçu monté</div>
     </div>
+  </div>
 
-    <div class="verre carte">
-      <h2>Corps&nbsp;: l'explication</h2>
-      <p>Damien, face caméra. Le texte est le sien, tel qu'il le dira, ponctuation remise au propre.</p>
-      <div class="repl"><span class="qui">Damien<small>la techno</small></span><p>«&nbsp;Bon, je vais lui expliquer. HEATTECH, c'est une technologie qu'Uniqlo a développée avec l'entreprise japonaise Toray, depuis plus de 20 ans. Ils ont bossé avec eux pour créer leur propre matière.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Damien<small>le pari</small></span><p>«&nbsp;Le but, c'est simple&nbsp;: faire les vêtements les plus chauds possible, aux prix les plus bas possible. Quand tu regardes les prix, ils ont réussi leur pari.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Damien<small>la preuve</small></span><p>«&nbsp;Ils ont même une chambre spéciale à Tokyo pour tester les produits dans des conditions extrêmes.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Damien<small>la question</small></span><p>«&nbsp;La vraie question maintenant, c'est&nbsp;: pourquoi c'est si peu cher&nbsp;?&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Damien<small>les raisons</small></span><p>«&nbsp;Il y a plusieurs facteurs. L'ancienneté&nbsp;: ça fait plus de 20 ans que Toray et Uniqlo bossent ensemble. La quantité de pièces vendues&nbsp;: HEATTECH, c'est plus d'1,5 milliard de ventes. Et en plus, tu rajoutes le fait qu'Uniqlo a trouvé sa gamme&nbsp;: ils ont leurs basiques sur ce qui compte le plus, et ils envoient du volume.&nbsp;»</p></div>
-      <div class="repl"><span class="qui">Damien<small>la chute</small></span><p>«&nbsp;Donc la prochaine fois que tu veux des produits pour pas trop cher, tu sais où aller.&nbsp;»</p></div>
-      <div class="cles">
-        <span class="cle"><b>220</b> mots</span>
-        <span class="cle"><b>≈ 40 s</b> à 5,5 mots par seconde</span>
-        <span class="cle"><b>1</b> idée&nbsp;: le prix</span>
-        <span class="cle"><b>0</b> superlatif</span>
+  <div class="cols">
+    <div class="col">
+      <div class="verre">
+        <h2>Le script, mot à mot</h2>
+        <p class="sous">Ouverture en sketch, deux personnages joués par Damien (veste contre tee-shirt HEATTECH), puis explication face caméra. Aucun superlatif, aucune promesse de température.</p>
+        <div class="repl"><span class="k">Perso 1<small>en veste</small></span><p>«&nbsp;Eh, il fait 5 degrés, t'es en tee-shirt, comment tu fais pour pas mourir de froid, là&nbsp;? Va mettre une veste, t'as cru que t'étais la Reine des neiges&nbsp;?&nbsp;»</p></div>
+        <div class="repl"><span class="k">Perso 2<small>HEATTECH</small></span><p>«&nbsp;Mon gars… HEATTECH, hein.&nbsp;»</p></div>
+        <div class="repl"><span class="k">Perso 1</span><p>«&nbsp;Comment ça, HEATTECH&nbsp;?&nbsp;»</p></div>
+        <div class="repl"><span class="k">Perso 2</span><p>«&nbsp;HEATTECH, mec.&nbsp;»</p></div>
+        <div class="repl"><span class="k">Perso 1<small>caméra</small></span><p>«&nbsp;Il commence à me rendre fou avec son HEATTECH, Aokiji. C'est quoi, ça&nbsp;?&nbsp;»<i>Coupe franche&nbsp;: Damien seul, face caméra.</i></p></div>
+        <div class="bloc">
+        <div class="repl"><span class="k">Damien<small>la techno</small></span><p>«&nbsp;Bon, je vais lui expliquer. HEATTECH, c'est une technologie qu'Uniqlo a développée avec l'entreprise japonaise Toray, depuis plus de 20 ans. Ils ont bossé avec eux pour créer leur propre matière.&nbsp;»</p></div>
+        <div class="repl"><span class="k">Damien<small>le pari</small></span><p>«&nbsp;Le but, c'est simple&nbsp;: faire les vêtements les plus chauds possible, aux prix les plus bas possible. Quand tu regardes les prix, ils ont réussi leur pari. Ils ont même une chambre spéciale à Tokyo pour tester les produits dans des conditions extrêmes.&nbsp;»</p></div>
+        <div class="repl"><span class="k">Damien<small>question</small></span><p>«&nbsp;La vraie question maintenant, c'est&nbsp;: pourquoi c'est si peu cher&nbsp;?&nbsp;»</p></div>
+        <div class="repl"><span class="k">Damien<small>raisons</small></span><p>«&nbsp;Il y a plusieurs facteurs. L'ancienneté&nbsp;: ça fait plus de 20 ans que Toray et Uniqlo bossent ensemble. La quantité de pièces vendues&nbsp;: HEATTECH, c'est plus d'1,5 milliard de ventes. Et en plus, tu rajoutes le fait qu'Uniqlo a trouvé sa gamme&nbsp;: ils ont leurs basiques sur ce qui compte le plus, et ils envoient du volume.&nbsp;»</p></div>
+        <div class="repl"><span class="k">Damien<small>la chute</small></span><p>«&nbsp;Donc la prochaine fois que tu veux des produits pour pas trop cher, tu sais où aller.&nbsp;»</p></div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section>
-    <span class="etiquette">Faits · 3 · d'où vient chaque chiffre</span>
-    <div class="verre carte">
-      <h2>Chaque phrase chiffrée a une source</h2>
-      <p>Étiquettes&nbsp;: <span class="tag v">V</span> vérifié dans une source publique, <span class="tag m">M</span> dit par Uniqlo ou Toray, <span class="tag q">À confirmer</span> nous avons besoin de votre chiffre.</p>
-      <div class="ligne"><span class="dit">«&nbsp;Développée avec l'entreprise japonaise Toray, depuis plus de 20 ans&nbsp;» <span class="tag v">V</span></span><p>Rencontre Uniqlo–Toray le 24 avril 2000, premières ventes HEATTECH en 2003, partenariat stratégique signé en 2006. Plus de 20 ans dans les deux lectures.</p></div>
-      <div class="ligne"><span class="dit">«&nbsp;Créer leur propre matière&nbsp;» <span class="tag m">M</span></span><p>Toray raconte avoir refusé de créer une fibre pour un seul client, jusqu'à ce qu'Uniqlo s'engage sur une ligne de production dédiée. C'est le récit de Toray, repris tel quel.</p></div>
-      <div class="ligne"><span class="dit">«&nbsp;Les vêtements les plus chauds possible, aux prix les plus bas possible&nbsp;» <span class="tag m">M</span></span><p>Résume la demande d'origine d'Uniqlo à Toray («&nbsp;chaud, fin, et sous un jean&nbsp;») et le positionnement de la gamme. Formulation de Damien.</p></div>
-      <div class="ligne"><span class="dit">«&nbsp;Une chambre spéciale à Tokyo pour tester les produits&nbsp;» <span class="tag m">M</span></span><p>Interview Toray (2023)&nbsp;: Uniqlo teste HEATTECH dans une chambre de simulation météo (climat, humidité) à son siège de Tokyo. Si «&nbsp;conditions extrêmes&nbsp;» vous semble trop fort, Damien peut dire «&nbsp;dans le froid et l'humidité&nbsp;».</p></div>
-      <div class="ligne"><span class="dit">«&nbsp;Plus d'1,5 milliard de ventes&nbsp;» <span class="tag q">À confirmer</span></span><p>Chiffre officiel trouvé&nbsp;: environ 1 milliard de pièces cumulées en 2017, annoncé par Uniqlo. Le 1,5 milliard vient de la presse en 2023. Donnez-nous le chiffre que vous souhaitez voir cité&nbsp;; sinon Damien dira «&nbsp;plus d'un milliard de pièces vendues&nbsp;».</p></div>
-      <div class="ligne"><span class="dit">«&nbsp;Ils ont leurs basiques et ils envoient du volume&nbsp;» <span class="tag v">V</span></span><p>Environ 1,5 million de pièces en 2003, 28 millions en 2008, 130 millions visés en 2012. La gamme change peu d'une année à l'autre.</p></div>
-      <div class="franc"><b>Ce qui n'est pas dans la vidéo, volontairement&nbsp;:</b> aucune promesse de température, aucun comparatif avec une autre marque, aucun mot comme «&nbsp;ultra&nbsp;» ou «&nbsp;de fou&nbsp;». Sur le compte de Damien, les vidéos sans superlatif convertissent deux fois mieux en abonnés.</div>
+    <div class="col">
+      <div class="verre">
+        <h2>D'où vient chaque chiffre</h2>
+        <p class="sous"><span class="tag v">V</span> vérifié dans une source publique · <span class="tag m">M</span> dit par Uniqlo ou Toray · <span class="tag q">À confirmer</span> votre chiffre</p>
+        <div class="fait"><b>«&nbsp;Avec Toray, depuis plus de 20 ans&nbsp;»<span class="tag v">V</span></b>Rencontre Uniqlo–Toray le 24 avril 2000, premières ventes HEATTECH en 2003, partenariat stratégique signé en 2006.</div>
+        <div class="fait"><b>«&nbsp;Créer leur propre matière&nbsp;»<span class="tag m">M</span></b>Toray raconte avoir refusé une fibre pour un seul client, jusqu'à ce qu'Uniqlo s'engage sur une ligne de production dédiée.</div>
+        <div class="fait"><b>«&nbsp;Une chambre spéciale à Tokyo&nbsp;»<span class="tag m">M</span></b>Interview Toray, 2023&nbsp;: chambre de simulation météo (climat, humidité) au siège d'Uniqlo à Tokyo. Si «&nbsp;conditions extrêmes&nbsp;» est trop fort, Damien dira «&nbsp;dans le froid et l'humidité&nbsp;».</div>
+        <div class="fait"><b>«&nbsp;Plus d'1,5 milliard de ventes&nbsp;»<span class="tag q">À confirmer</span></b>Officiel trouvé&nbsp;: environ 1 milliard de pièces cumulées en 2017, annoncé par Uniqlo. Le 1,5 milliard vient de la presse 2023. Sans votre chiffre, Damien dira «&nbsp;plus d'un milliard&nbsp;».</div>
+        <div class="fait"><b>«&nbsp;Leurs basiques, et ils envoient du volume&nbsp;»<span class="tag v">V</span></b>1,5 million de pièces en 2003, 28 millions en 2008, 130 millions visés en 2012. La gamme change peu d'une année à l'autre.</div>
+      </div>
+
+      <div class="verre">
+        <h2>Tournage</h2>
+        <ul class="liste">
+          <li><b>Image</b><span>Fond vert, plan fixe. Le sketch en deux prises, une par personnage, montées en champ-contrechamp.</span></li>
+          <li><b>Pièce portée</b><span>Un HEATTECH manches longues homme, porté seul&nbsp;: c'est le gag visuel. Référence exacte à votre choix.</span></li>
+          <li><b>Habillage</b><span>Sous-titres sur toute la vidéo, nom HEATTECH écrit comme vous l'écrivez.</span></li>
+          <li><b>Mentions</b><span>«&nbsp;Collaboration commerciale&nbsp;» à l'écran et en légende. Légende envoyée pour validation.</span></li>
+          <li><b>Calendrier</b><span>Tournage avant le 18, aperçu monté envoyé, publication le 18 novembre après votre accord.</span></li>
+        </ul>
+      </div>
+
+      <div class="verre">
+        <h2>Trois réponses, et on tourne</h2>
+        <div class="valid">
+          <div><b>1</b>Le script, tel quel ou avec vos modifications.</div>
+          <div><b>2</b>Le chiffre de ventes à citer&nbsp;: 1,5 milliard, 1 milliard, ou le vôtre.</div>
+          <div><b>3</b>La pièce portée et l'orthographe officielle du nom de gamme.</div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <span class="etiquette">Tournage · 4 · comment on le filme</span>
-    <div class="verre carte">
-      <h2>Fond vert, plan fixe, deux tenues</h2>
-      <div class="spec"><span class="num">LIEU ET IMAGE</span><h3>Studio sur fond vert</h3><p>Damien filmé en plan fixe, le fond habillé au montage. Le sketch d'ouverture se tourne en deux prises (une par personnage), montées côte à côte ou en champ-contrechamp.</p></div>
-      <div class="spec"><span class="num">PIÈCE PORTÉE</span><h3>Un HEATTECH manches longues homme</h3><p>Le personnage 2 porte le tee-shirt HEATTECH sous rien d'autre, c'est le gag visuel du sketch. La référence exacte à montrer (classique, Extra Chaud ou Ultra Chaud) est à votre choix, voir section 6.</p></div>
-      <div class="spec"><span class="num">HABILLAGE</span><h3>Sous-titres, nom de la gamme, prix</h3><p>Sous-titres sur toute la vidéo. Le nom HEATTECH apparaît à l'écran écrit comme vous l'écrivez. Si un prix est affiché, c'est le prix public France du jour.</p></div>
-      <div class="spec"><span class="num">MENTIONS</span><h3>Collaboration commerciale indiquée</h3><p>Mention «&nbsp;collaboration commerciale&nbsp;» ou «&nbsp;partenariat rémunéré&nbsp;» à l'écran et dans la légende, selon la loi française de 2023 sur les influenceurs. La légende vous est envoyée pour validation avant publication.</p></div>
-      <div class="spec"><span class="num">CALENDRIER</span><h3>Tournage cette semaine, aperçu avant le 18</h3><p>Tournage avant le 18 novembre, puis la vidéo montée vous est envoyée en aperçu. Publication le mercredi 18 novembre 2026 une fois votre accord reçu. Si le délai de validation est plus long, la date de publication se décale d'autant.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <span class="etiquette">Intros · 5 · trois ouvertures alternatives, pour les essais</span>
-    <div class="verre carte">
-      <h2>Même corps, plusieurs façons de commencer</h2>
-      <p>Damien teste souvent plusieurs intros en vidéos d'essai avant la version publique&nbsp;: les 5 premières secondes décident de tout. Ces trois ouvertures face caméra, écrites le 26 octobre, peuvent servir de variantes au sketch. Si vous préférez que seule la version sketch existe, on s'y tient.</p>
-      <div class="intro"><span class="num">INTRO A · LA PROMESSE</span><p>«&nbsp;S'il y a bien un moyen de rester au chaud en hiver, c'est de porter du HEATTECH. Aujourd'hui, je t'explique comment Uniqlo a créé une technologie capable de te protéger du froid, vendue à un prix imbattable pour les concurrents.&nbsp;»</p></div>
-      <div class="intro"><span class="num">INTRO B · LA QUESTION</span><p>«&nbsp;Uniqlo a une gamme conçue exprès pour les grands froids, et toi, tu la connais même pas&nbsp;? Aujourd'hui, je te présente leur gamme HEATTECH, et tu vas vouloir en acheter après avoir vu cette vidéo.&nbsp;»</p></div>
-      <div class="intro"><span class="num">INTRO C · LE CHIFFRE</span><p>«&nbsp;Uniqlo a vendu plus d'un milliard de produits juste avec leur gamme qui protège du froid. Attends, je t'explique comment ils ont cassé le game.&nbsp;»</p></div>
-    </div>
-  </section>
-
-  <section>
-    <span class="etiquette">Validation · 6 · ce qu'on attend de vous</span>
-    <div class="verre carte">
-      <h2>Trois réponses, et on tourne</h2>
-      <div class="spec"><span class="num">1</span><h3>Le script, tel quel ou modifié</h3><p>Une phrase à changer, un mot à retirer&nbsp;: indiquez-le, Damien l'intègre avant le tournage. Le texte reste dans sa voix, c'est ce qui fait que son public l'écoute.</p></div>
-      <div class="spec"><span class="num">2</span><h3>Le chiffre de ventes à citer</h3><p>«&nbsp;Plus d'1,5 milliard&nbsp;», «&nbsp;plus d'un milliard&nbsp;», ou votre chiffre officiel le plus récent.</p></div>
-      <div class="spec"><span class="num">3</span><h3>La pièce et son nom officiel</h3><p>Quel HEATTECH manches longues Damien porte à l'écran, et l'orthographe exacte du nom de gamme à afficher.</p></div>
-      <div class="franc"><b>Ensuite&nbsp;:</b> tournage, montage, aperçu de la vidéo et légende envoyés pour votre accord, puis publication le 18 novembre.</div>
-    </div>
-  </section>
-
-  <p class="pied"><b>Damien Roussel</b> · RD CREATION · document préparé le 15 novembre 2026 pour l'équipe influence d'Uniqlo. Lien privé, non indexé.</p>
-</main>
-<script>
-(function(){const m=document.querySelector('main');if(!m)return;const secs=[...m.querySelectorAll('section')].filter(s=>s.querySelector(':scope>.etiquette'));
-if(secs.length<3)return;const nav=document.createElement('nav');nav.className='lis-nav';
-const brut=secs.map(s=>s.querySelector(':scope>.etiquette').textContent.replace(/\s*:\s*\d+\s*\/\s*\d+.*$/,'').trim());
-const tetes=brut.map(t=>t.split('·')[0].trim());
-secs.forEach((s,i)=>{s.id=s.id||'ch'+(i+1);const a=document.createElement('a');a.href='#'+s.id;
-const parts=brut[i].split('·').map(x=>x.trim());let t=parts[0];
-if(tetes.filter(x=>x===t).length>1&&parts[1])t=parts[1].replace(/^\d+\.\s*/,'');
-t=t.replace(/\s*:.*$/,'');t=t.charAt(0).toUpperCase()+t.slice(1);a.textContent=t.length>26?t.slice(0,24)+'…':t;nav.appendChild(a)});
-const hero=m.querySelector('header');(hero||m.firstElementChild).insertAdjacentElement('afterend',nav);
-const links=[...nav.children];const pb=document.querySelector('.lis-progres');
-let tops=[],H=1;function mesure(){tops=secs.map(s=>s.offsetTop);const h=document.documentElement;H=Math.max(1,h.scrollHeight-h.clientHeight)}
-function maj(){const y=window.scrollY+120;let k=0;tops.forEach((t,i)=>{if(t<=y)k=i});links.forEach((a,i)=>a.classList.toggle('on',i===k));
-if(pb)pb.style.width=(100*window.scrollY/H)+'%'}
-let raf=0;addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;maj()})},{passive:true});
-addEventListener('resize',()=>{mesure();maj()});addEventListener('load',()=>{mesure();maj()});mesure();maj();})();
-</script>
+  <div class="pied"><span><b>Damien Roussel</b> · RD CREATION · préparé le 15 novembre 2026 pour l'équipe influence d'Uniqlo</span><span>Script écrit par Damien, dans sa voix. Document privé, non indexé.</span></div>
+</div>
+</div>
 </body>
 </html>
